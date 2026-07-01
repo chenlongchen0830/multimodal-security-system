@@ -1,0 +1,34 @@
+# 基于计算机视觉的智能安防监控系统 - 依赖列表
+# 安装命令: pip install -r requirements.txt
+# 注意：此文件包含基础依赖，GPU 版 PyTorch 需单独安装！
+
+# ========== 核心依赖（必须）==========
+opencv-python>=4.8.0
+numpy>=1.24.0
+Pillow>=9.0.0
+
+# ========== 功能5&6: 车辆识别 + 人流统计 ==========
+ultralytics>=8.0.0
+
+# ========== 功能5: 车牌OCR ==========
+# easyocr 首次运行会自动下载模型（约100MB）
+easyocr>=1.7.0
+
+# ========== 功能1&2: 人脸识别 + 黑名单（可选）==========
+# face_recognition 需要 dlib，Windows 安装较复杂
+# 建议按 README.md 或 环境搭建指南.md 的说明安装
+# face_recognition>=1.3.0
+
+# ========== GPU 版 PyTorch（必须单独安装！）==========
+# 不要直接在这里写 torch，因为默认会装 CPU 版！
+# 请手动执行以下命令（根据显卡选择）：
+#
+# RTX 30/40 系 / GTX 16 系（推荐 cu118，兼容性最好）：
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+#
+# RTX 40 系（较新，可选 cu121）：
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+#
+# 验证命令：
+#   python -c "import torch; print(torch.cuda.is_available())"
+# 应输出 True
